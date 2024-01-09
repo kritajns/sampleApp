@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
-import axios from 'axios';
 import ProductCard from './app/components/ProductCard';
 
 export default function App() {
@@ -90,7 +89,7 @@ export default function App() {
       </ScrollView>
 
       <View style={{marginTop: 15, marginBottom: 10, marginLeft: 10}}>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>My Products</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}}>{selectedCategory === 'All' ? 'My Products' : selectedCategory}</Text>
       </View>
 
       <FlatList
