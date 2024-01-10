@@ -12,9 +12,9 @@ const SingleProduct = ({ imageURL, title, price, desc, category }) => {
         <Text style={styles.titleText}>{title}</Text>
         <Text styles={styles.textStyle}>{category}</Text>
       </View>
-      <View style={styles.container2}>
+      <View style={styles.textContainer}>
         <Text style={styles.longText}>{desc}</Text>
-        <Text style={styles.priceText}>{price}</Text>
+        <Text style={styles.priceText}>${price}</Text>
       </View>
     </View>
   );
@@ -22,16 +22,14 @@ const SingleProduct = ({ imageURL, title, price, desc, category }) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
-    margin: 10,
-    padding: 10,
+    // flex: 1,
+    margin: 0,
+    padding: 0,
   },
   imageContainer: {
     // flex: 1,
     backgroundColor: "white",
     height: 400,
-    marginTop: 10,
-    // borderRadius: 20,
     marginVertical: 10,
   },
   imageStyle: {
@@ -43,10 +41,10 @@ const styles = StyleSheet.create({
     // marginBottom: 10,
   },
   textContainer: {
-    marginVertical: 8,
+    marginHorizontal: 20,
   },
   titleText: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     color: "blue",
   },
@@ -59,15 +57,17 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   longText: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "500",
     color: "grey",
     lineHeight: 22,
     letterSpacing: 0.5,
+    marginBottom: 15
   },
   priceText: {
     fontSize: 20,
     fontWeight: "bold",
+    color: 'green'
   },
 });
 

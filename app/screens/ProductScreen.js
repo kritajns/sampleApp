@@ -57,15 +57,19 @@ const ProductScreen = () => {
 
   // rendering categories list
   const renderCategories = ({ item }) => {
+    console.log('this is items-=-=-', item);
+    const isSelected = selectedCategory == item;
     return (
       <TouchableOpacity
-        style={styles.boxContainer}
+        style={[styles.boxContainer, {backgroundColor: isSelected ? 'darkblue' : 'white'}]}
         onPress={() => setSelectedCategory(item)}
       >
-        <Text style={styles.itemStyle}>{item}</Text>
+        <Text style={[styles.itemStyle, {color: isSelected ? 'white' : 'darkblue'}]}>{item}</Text>
       </TouchableOpacity>
     );
   };
+
+  console.log('selected-=-=-', selectedCategory);
 
   // rendering the product lists
   const renderProductItem = ({ item }) => {
@@ -94,18 +98,19 @@ const ProductScreen = () => {
       </View>
 
       <ScrollView
-        contentContainerStyle={{
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
+        // contentContainerStyle={{
+        //   flexDirection: "row",
+        //   justifyContent: "center",
+        // }}
+        style={styles.scrollView}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       >
         <TouchableOpacity
-          style={styles.boxContainer}
+          style={[styles.boxContainer, {backgroundColor: selectedCategory === 'All' ? 'darkblue' : 'white'}]}
           onPress={() => setSelectedCategory("All")}
         >
-          <Text style={styles.itemStyle}>All</Text>
+          <Text style={[styles.itemStyle, {color: selectedCategory === 'All' ? 'white' : 'darkblue'}]}>All</Text>
         </TouchableOpacity>
 
         <FlatList
@@ -116,6 +121,10 @@ const ProductScreen = () => {
           keyExtractor={(item, index) => index.toString()}
         />
       </ScrollView>
+
+      {/* <TouchableOpacity style={{backgroundColor: 'orange', width: 150, padding: 25, justifyContent: 'center', alignItems: 'center', borderRadius: 20}}>
+        <Text style={{fontSize: 16, fontWeight: '500', color: 'black'}}>Add to Cart</Text>
+      </TouchableOpacity> */}
 
       <View style={{ marginTop: 15, marginBottom: 10, marginLeft: 10 }}>
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
@@ -142,20 +151,22 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: "lightgrey",
   },
+  scrollView: {},
   boxContainer: {
     // height: '35%',
     width: 140,
     height: 40,
-    paddingHorizontal: 8,
+    margin: 10,
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
-    backgroundColor: "darkblue",
+    borderWidth: 1,
+    borderColor: 'darkblue',
     marginHorizontal: 4,
-    // borderRadius: 70,
+    borderRadius: 30,
   },
   itemStyle: {
-    color: "white",
+    color: "darkblue",
   },
 });
 
