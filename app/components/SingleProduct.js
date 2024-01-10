@@ -14,7 +14,9 @@ const SingleProduct = ({ imageURL, title, price, desc, category }) => {
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.longText}>{desc}</Text>
-        <Text style={styles.priceText}>${price}</Text>
+        <View style={styles.priceContent}>
+          <Text style={styles.priceText}>${price}</Text>
+        </View>
       </View>
     </View>
   );
@@ -44,9 +46,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   titleText: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "bold",
-    color: "blue",
+    color: "darkblue",
   },
   textStyle: {
     fontSize: 22,
@@ -59,15 +61,23 @@ const styles = StyleSheet.create({
   longText: {
     fontSize: 15,
     fontWeight: "500",
-    color: "grey",
+    color: "black",
     lineHeight: 22,
     letterSpacing: 0.5,
-    marginBottom: 15
+    marginBottom: 15,
+  },
+  priceContent: {
+    backgroundColor: "green",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    width: 80,
+    height: 30,
   },
   priceText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
-    color: 'green'
+    color: "white",
   },
 });
 

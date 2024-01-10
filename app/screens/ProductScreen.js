@@ -57,19 +57,29 @@ const ProductScreen = () => {
 
   // rendering categories list
   const renderCategories = ({ item }) => {
-    console.log('this is items-=-=-', item);
+    console.log("this is items-=-=-", item);
     const isSelected = selectedCategory == item;
     return (
       <TouchableOpacity
-        style={[styles.boxContainer, {backgroundColor: isSelected ? 'darkblue' : 'white'}]}
+        style={[
+          styles.boxContainer,
+          { backgroundColor: isSelected ? "darkblue" : "white" },
+        ]}
         onPress={() => setSelectedCategory(item)}
       >
-        <Text style={[styles.itemStyle, {color: isSelected ? 'white' : 'darkblue'}]}>{item}</Text>
+        <Text
+          style={[
+            styles.itemStyle,
+            { color: isSelected ? "white" : "darkblue" },
+          ]}
+        >
+          {item}
+        </Text>
       </TouchableOpacity>
     );
   };
 
-  console.log('selected-=-=-', selectedCategory);
+  console.log("selected-=-=-", selectedCategory);
 
   // rendering the product lists
   const renderProductItem = ({ item }) => {
@@ -85,8 +95,6 @@ const ProductScreen = () => {
             });
           }}
         />
-
-        {/* <Button title='Add to Cart' /> */}
       </>
     );
   };
@@ -107,10 +115,23 @@ const ProductScreen = () => {
         showsHorizontalScrollIndicator={false}
       >
         <TouchableOpacity
-          style={[styles.boxContainer, {backgroundColor: selectedCategory === 'All' ? 'darkblue' : 'white'}]}
+          style={[
+            styles.boxContainer,
+            {
+              backgroundColor:
+                selectedCategory === "All" ? "darkblue" : "white",
+            },
+          ]}
           onPress={() => setSelectedCategory("All")}
         >
-          <Text style={[styles.itemStyle, {color: selectedCategory === 'All' ? 'white' : 'darkblue'}]}>All</Text>
+          <Text
+            style={[
+              styles.itemStyle,
+              { color: selectedCategory === "All" ? "white" : "darkblue" },
+            ]}
+          >
+            All
+          </Text>
         </TouchableOpacity>
 
         <FlatList
@@ -121,10 +142,6 @@ const ProductScreen = () => {
           keyExtractor={(item, index) => index.toString()}
         />
       </ScrollView>
-
-      {/* <TouchableOpacity style={{backgroundColor: 'orange', width: 150, padding: 25, justifyContent: 'center', alignItems: 'center', borderRadius: 20}}>
-        <Text style={{fontSize: 16, fontWeight: '500', color: 'black'}}>Add to Cart</Text>
-      </TouchableOpacity> */}
 
       <View style={{ marginTop: 15, marginBottom: 10, marginLeft: 10 }}>
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
@@ -161,7 +178,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     borderWidth: 1,
-    borderColor: 'darkblue',
+    borderColor: "darkblue",
     marginHorizontal: 4,
     borderRadius: 30,
   },
